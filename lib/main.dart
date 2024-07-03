@@ -12,20 +12,55 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(),
-        body: ShopItem(),
+        body: ListView(
+          children: [
+            Row(
+              children: [
+                Image.asset('assets/korea.jpeg', height: 20,),
+                SizedBox(width: 8,),
+                Container(
+                  child: Text('홍길동'),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Image.asset('assets/korea.jpeg', height: 20,),
+                SizedBox(width: 8,),
+                Container(
+                  child: Text('홍길동'),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                Image.asset('assets/korea.jpeg', height: 20,),
+                SizedBox(width: 8,),
+                Container(
+                  child: Text('홍길동'),
+                )
+              ],
+            ),
+          ],
+        ),
+        bottomNavigationBar: BottomAppBar(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Container(
+                child: Icon(Icons.cabin),
+              ),
+              Container(
+                child: Icon(Icons.cabin),
+              ),
+              Container(
+                child: Icon(Icons.cabin),
+              ),
+            ],
+          ),
+
+        ),
       ),
-    );
-  }
-}
-
-///커스텀 위젯 만듬
-class ShopItem extends StatelessWidget {
-  const ShopItem({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      child: Text('안녕'),
     );
   }
 }
