@@ -5,62 +5,33 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  var a = 1;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(),
-        body: ListView(
-          children: [
-            Row(
-              children: [
-                Image.asset('assets/korea.jpeg', height: 20,),
-                SizedBox(width: 8,),
-                Container(
-                  child: Text('홍길동'),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                Image.asset('assets/korea.jpeg', height: 20,),
-                SizedBox(width: 8,),
-                Container(
-                  child: Text('홍길동'),
-                )
-              ],
-            ),
-            Row(
-              children: [
-                Image.asset('assets/korea.jpeg', height: 20,),
-                SizedBox(width: 8,),
-                Container(
-                  child: Text('홍길동'),
-                )
-              ],
-            ),
-          ],
-        ),
-        bottomNavigationBar: BottomAppBar(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                child: Icon(Icons.cabin),
-              ),
-              Container(
-                child: Icon(Icons.cabin),
-              ),
-              Container(
-                child: Icon(Icons.cabin),
-              ),
-            ],
-          ),
+        home: Scaffold(
+            floatingActionButton: FloatingActionButton(
+              child: Text(a.toString()),
+              onPressed: (){
+                a++;
+                print(a);
+              }),
+            appBar: AppBar(),
+            body: ListView.builder(
+              itemCount: 3, // 몇번 반복할건지
+              itemBuilder: (context, i) { // 함수 넣기
+                print(i);
+                return ListTile(
+                  leading: Image.asset('assets/korea.jpeg'),
+                  title: Text('홍길동'),
+                );
+              },
+            )
 
-        ),
-      ),
+        )
     );
   }
 }
